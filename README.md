@@ -42,7 +42,7 @@ R² = 0.41 (41% of price variance explained by renewable share alone)
 
 ### Monte Carlo Risk Simulation
 
-What happens when renewable generation suddenly drops? We simulated 5,000 scenarios where high-renewable days (≥60%) experience random drops averaging 20%:
+What happens when renewable generation suddenly drops? I simulated 5,000 scenarios where high-renewable days (≥60%) experience random drops averaging 20%:
 
 | Risk Metric | Value |
 |-------------|-------|
