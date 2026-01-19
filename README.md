@@ -6,7 +6,7 @@
 
 As Spain increases its renewable energy capacity, the grid faces new challenges. Renewable generation (wind, solar, hydro) is inherently variable - clouds pass, wind dies down, reservoir levels fluctuate. When renewable output drops suddenly, dispatchable generation (gas, coal) must ramp up quickly, often at premium prices. This project quantifies that price risk using real data from Spain's electricity grid.
 
-> **Note**: This analysis uses the **full renewable energy mix** (hydro, wind, solar PV, solar thermal, and other renewables) - not just solar and wind. The data infrastructure already tracks all 19 generation sources individually, enabling future research into source-specific price impacts.
+> **Note**: This analysis uses the **full renewable energy mix** (hydro, wind, solar PV, solar thermal, and other renewables). The data infrastructure already tracks all 19 generation sources individually, enabling future research into source-specific price impacts.
 
 ## Key Findings (Jan 2024 - Dec 2025)
 
