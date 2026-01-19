@@ -2,9 +2,11 @@
 
 ## Research Question
 
-**How does high renewable (solar + wind) penetration drive electricity price volatility in Spain's grid?**
+**How does high renewable penetration drive electricity price volatility in Spain's grid?**
 
-As Spain increases its renewable energy capacity, the grid faces new challenges. Solar and wind generation are inherently variable - clouds pass, wind dies down. When renewable output drops suddenly, dispatchable generation must ramp up quickly, often at premium prices. This project quantifies that risk using real data from Spain's electricity grid.
+As Spain increases its renewable energy capacity, the grid faces new challenges. Renewable generation (wind, solar, hydro) is inherently variable - clouds pass, wind dies down, reservoir levels fluctuate. When renewable output drops suddenly, dispatchable generation (gas, coal) must ramp up quickly, often at premium prices. This project quantifies that price risk using real data from Spain's electricity grid.
+
+> **Note**: This analysis uses the **full renewable energy mix** (hydro, wind, solar PV, solar thermal, and other renewables) - not just solar and wind. The data infrastructure already tracks all 19 generation sources individually, enabling future research into source-specific price impacts.
 
 ## Key Findings (Jan 2024 - Dec 2025)
 
@@ -104,7 +106,7 @@ This project uses Spain's official electricity data from **REData API** (Red El�
 ### Data Processing
 
 - **Prices**: 15-minute spot market prices aggregated to daily averages (EUR/MWh)
-- **Renewable Share**: `(solar + wind + hydro + other renewables) / total demand × 100%`
+- **Renewable Share**: `(hydro + wind + solar PV + solar thermal + other renewables) / total demand × 100%`
 - **Output**: Merged dataset with 26 columns covering all generation sources
 
 ---
@@ -255,6 +257,29 @@ mkdir -p data outputs
 python main.py all --data-dir ./data --output-dir ./outputs \
     --start-date 2024-01-01 --end-date 2024-12-31
 ```
+
+---
+
+## Future Work
+
+This project lays the groundwork for deeper analysis. Potential extensions include:
+
+**Source-Specific Analysis**
+- The dataset already tracks all 19 generation sources individually
+- Future work could analyze how drops in specific sources (e.g., wind alone, solar alone) affect prices differently
+- Hydro variability (seasonal, drought conditions) could be studied separately from wind/solar intermittency
+
+**Cloud Deployment**
+- Deploy the container to AWS (ECS/Fargate) or GCP Cloud Run
+- Schedule automated daily/weekly data refreshes
+- Set up alerts for high-risk price conditions
+
+**Enhanced Modeling**
+- Multivariate regression including weather data, demand forecasts
+- Time-series models (ARIMA, Prophet) for price forecasting
+- Machine learning approaches for non-linear relationships
+
+---
 
 ## License
 
