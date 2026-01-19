@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from scipy import stats
+from scipy.stats import truncnorm
 
 from utils import print_header
 
@@ -309,8 +310,11 @@ def monte_carlo_simulation(
     sampled_base_prices = base_prices[sample_indices]
     sampled_base_renewable = base_renewable[sample_indices]
 
-    # Generate random drops (clipped to avoid negative renewable share)
-    random_drops = np.random.normal(drop_mean, drop_std, n_simulations)
+    # Generate random drops using truncated normal (only positive values)
+    # Truncated normal: lower bound = 0, upper bound = inf (then clip to actual renewable share)
+    a = (0 - drop_mean) / drop_std  # Lower bound in standard normal units
+    b = np.inf  # No upper bound initially
+    random_drops = truncnorm.rvs(a, b, loc=drop_mean, scale=drop_std, size=n_simulations)
     random_drops = np.clip(random_drops, 0, sampled_base_renewable)  # Can't drop more than current share
 
     # Calculate price changes

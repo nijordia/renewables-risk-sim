@@ -226,10 +226,12 @@ Subcommand options:
 
 ### Part 4: Monte Carlo Simulation
 - Filter high renewable days (≥60% share)
-- Simulate random drops: `Normal(mean=20%, std=10%)`
+- Simulate random drops using **truncated normal distribution** (mean=20%, std=10%, lower bound=0%)
 - Calculate: `new_price = base_price + (drop_pct × -coefficient)`
 - 5,000 simulation runs
 - Output: mean spike, 95th percentile, probability of extreme prices
+
+> **Note on distribution choice**: We use a truncated normal (bounded at 0) rather than a standard normal to model renewable drops. This avoids artificial spikes at zero caused by clipping negative samples, producing a more realistic distribution of price impacts.
 
 ---
 
