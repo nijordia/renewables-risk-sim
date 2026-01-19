@@ -6,7 +6,7 @@
 
 As Spain increases its renewable energy capacity, the grid faces new challenges. Renewable generation (wind, solar, hydro) is inherently variable - clouds pass, wind dies down, reservoir levels fluctuate. When renewable output drops suddenly, dispatchable generation (gas, coal) must ramp up quickly, often at premium prices. This project quantifies that price risk using real data from Spain's electricity grid.
 
-> **Note**: This analysis uses the **full renewable energy mix** (hydro, wind, solar PV, solar thermal, and other renewables) - not just solar and wind. The data infrastructure already tracks all 19 generation sources individually, enabling future research into source-specific price impacts.
+> **Note**: This analysis uses the **full renewable energy mix** (hydro, wind, solar PV, solar thermal, and other renewables) - not just solar, wind and hydro. The data infrastructure already tracks all 19 generation sources individually, enabling future research into source-specific price impacts.
 
 ## Key Findings (Jan 2024 - Dec 2025)
 
@@ -42,7 +42,7 @@ R² = 0.41 (41% of price variance explained by renewable share alone)
 
 ### Monte Carlo Risk Simulation
 
-What happens when renewable generation suddenly drops? We simulated 5,000 scenarios where high-renewable days (≥60%) experience random drops averaging 20%:
+What happens when renewable generation suddenly drops? I simulated 5,000 scenarios where high-renewable days (≥60%) experience random drops averaging 20%:
 
 | Risk Metric | Value |
 |-------------|-------|
@@ -88,6 +88,9 @@ This project is containerized for three key reasons:
 ```bash
 # One command to reproduce the entire analysis
 docker run -v $(pwd)/outputs:/outputs -v $(pwd)/data:/data renewables-risk-sim
+
+# If you are running it using windows cmd use:
+docker run -v %cd%\outputs:/outputs -v %cd%\data:/data renewables-risk-sim
 ```
 
 ---
