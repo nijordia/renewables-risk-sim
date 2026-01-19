@@ -88,6 +88,9 @@ This project is containerized for three key reasons:
 ```bash
 # One command to reproduce the entire analysis
 docker run -v $(pwd)/outputs:/outputs -v $(pwd)/data:/data renewables-risk-sim
+
+# If you are running it using windows cmd use:
+docker run -v %cd%\outputs:/outputs -v %cd%\data:/data renewables-risk-sim
 ```
 
 ---
