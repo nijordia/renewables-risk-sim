@@ -46,19 +46,19 @@ What happens when renewable generation suddenly drops? I simulated 5,000 scenari
 
 | Risk Metric | Value |
 |-------------|-------|
-| Mean price spike | +45.23 EUR/MWh |
-| 95th percentile spike | +83.08 EUR/MWh |
-| 99th percentile spike | +99.71 EUR/MWh |
-| P(price > 100 EUR/MWh) | 38.1% |
-| P(price > 150 EUR/MWh) | 8.1% |
+| Mean price spike | +46.31 EUR/MWh |
+| 95th percentile spike | +82.80 EUR/MWh |
+| 99th percentile spike | +96.94 EUR/MWh |
+| P(price > 100 EUR/MWh) | 39.0% |
+| P(price > 150 EUR/MWh) | 7.8% |
 
 ![Monte Carlo Simulation](outputs/monte_carlo_simulation.png)
 
-*The simulation shows that sudden renewable drops can cause significant price spikes, with ~38% of scenarios resulting in prices exceeding 100 EUR/MWh.*
+*The simulation shows that sudden renewable drops can cause significant price spikes, with ~39% of scenarios resulting in prices exceeding 100 EUR/MWh.*
 
 ### Key Insight
 
-> **A 20% renewable drop → ~45 EUR/MWh price spike**
+> **A 20% renewable drop → ~46 EUR/MWh price spike**
 >
 > 95th percentile spike: 83 EUR/MWh
 >
