@@ -255,63 +255,28 @@ Pumped hydro (generation/consumption), Battery (charge/discharge)
 
 Docker is optional. You can run the project directly with Python 3.11+.
 
-### Prerequisites
-
-- Python 3.11 or higher
-- pip (Python package manager)
-
 ### Setup
 
 ```bash
-# Clone the repository
 git clone https://github.com/yourusername/renewables-risk-sim.git
 cd renewables-risk-sim
-
-# (Optional) Create a virtual environment
-python -m venv venv
-source venv/bin/activate  # Linux/macOS
-venv\Scripts\activate     # Windows
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Create output directories
-mkdir data outputs        # Linux/macOS
-mkdir data, outputs       # Windows PowerShell
 ```
 
-### Run the Analysis
+Create output directories:
+- **Linux/macOS:** `mkdir data outputs`
+- **Windows PowerShell:** `mkdir data, outputs`
 
-**Full pipeline (fetch + analyze):**
-```bash
-python main.py all --data-dir ./data --output-dir ./outputs \
-    --start-date 2024-01-01 --end-date 2024-12-31
-```
+### Commands
 
-**Fetch data only:**
-```bash
-python main.py fetch --data-dir ./data \
-    --start-date 2024-01-01 --end-date 2024-12-31
-```
+| Action | Command |
+|--------|---------|
+| Full pipeline | `python main.py all --data-dir ./data --output-dir ./outputs --start-date 2024-01-01 --end-date 2024-12-31` |
+| Fetch only | `python main.py fetch --data-dir ./data --start-date 2024-01-01 --end-date 2024-12-31` |
+| Analyze only | `python main.py analyze --data-dir ./data --output-dir ./outputs` |
+| Custom params | `python main.py analyze --data-dir ./data --output-dir ./outputs --threshold 50 --drop-mean 15` |
 
-**Analyze existing data:**
-```bash
-python main.py analyze --data-dir ./data --output-dir ./outputs
-```
-
-**With custom Monte Carlo parameters:**
-```bash
-python main.py analyze --data-dir ./data --output-dir ./outputs \
-    --threshold 50 --drop-mean 15 --drop-std 5
-```
-
-### Output
-
-Results will be saved to your local `./outputs/` directory:
-- `exploratory_analysis.png`
-- `regression_diagnostics.png`
-- `monte_carlo_simulation.png`
-- `report.json`
+Results are saved to `./outputs/` (PNG plots + `report.json`).
 
 ---
 
